@@ -1,22 +1,22 @@
-# ict — trang tải Preview Builds (GitHub Pages)
+# ict — ICT App Builds (GitHub Pages)
 
-Nhánh `gh-pages` phục vụ trang tải APK dùng chung cho nhiều app, **quản lý bởi AFC**.
+Nhánh `gh-pages` phục vụ trang quản lý & tải bản build các app của partner **ICT**.
 URL: https://ddpsolution.github.io/ict/
 
 ## Cách hoạt động
-- `index.html` đọc **GitHub Releases API** của repo này rồi render mỗi app một thẻ + nút **Tải APK**
-  (trỏ thẳng `browser_download_url` của asset `.apk` → KHÔNG hiện "Source code").
-- **Thêm app = publish một GitHub Release có file `.apk`** (cơ chế sẵn có của AFC/`release`). App tự xuất hiện.
+- `index.html` đọc **`apps.json`** (do AFC quản lý) → mỗi app một thẻ: **Tải APK** (file trong `builds/<code>/`) + **Xem artifact**.
+- **KHÔNG dùng GitHub Releases** → không có "Source code (zip/tar.gz)".
+- APK host thẳng trên Pages tại `builds/<code>/<ten>.apk` (chỉ giữ **version mới nhất** mỗi app).
 
-## AFC tùy biến bằng `apps.json` (tùy chọn)
-Key = `app_code` (3 ký tự, vd `05j`). Mọi trường đều optional:
+## apps.json (AFC quản lý)
 ```json
-{ "apps": {
-  "05j": { "name": "Live TV: M3U Player", "icon": "https://…/icon.png", "notes": "Ghi chú ngắn", "order": 1, "hidden": false }
-}}
+{ "brand": {"name":"ICT"},
+  "apps": [
+    { "code":"05j", "name":"Live TV: M3U Player", "package":"com.m3uplay.livetv.player",
+      "order":5, "artifact":"https://claude.ai/artifact/…", "apk":"builds/05j/….apk", "size":58093390 }
+  ] }
 ```
-- `name` đè tên tự suy; `icon` URL ảnh; `notes` mô tả ngắn; `order` số nhỏ lên trước; `hidden: true` để ẩn app khỏi trang.
-- Không khai thì trang tự suy tên/mã từ tiêu đề + tag release, sắp theo ngày publish mới nhất.
+- `apk: null` → thẻ hiện "APK sắp có". `hidden: true` → ẩn app. `order` nhỏ lên trước. `icon` optional.
+- Thêm/đổi build: thay file trong `builds/<code>/` + cập nhật `apk`/`size` trong `apps.json` (giữ 1 file mới nhất).
 
-## Lưu ý
-- `main` chỉ chứa README (không source app). APK nằm ở Releases. Trang chỉ liệt kê `.apk`.
+> `main` chỉ chứa README (không source app).

@@ -1,4 +1,51 @@
 {
-  "_doc": "AFC quản lý tùy biến hiển thị ở đây. Trang vẫn tự liệt kê mọi release có .apk kể cả khi để trống. Key = app_code 3 ký tự.",
-  "apps": {}
+  "brand": {
+    "name": "ICT"
+  },
+  "apps": [
+    {
+      "code": "05f",
+      "name": "Foldly",
+      "package": "com.paper.folding.foldly",
+      "order": 1,
+      "artifact": "https://claude.ai/artifact/Y8As18XXTshDuCn2qk64rH",
+      "apk": "builds/05f/Foldly-05f.apk",
+      "size": 60068350
+    },
+    {
+      "code": "05g",
+      "name": "Origami Joy",
+      "package": "com.paper.folding.origamijoy",
+      "order": 2,
+      "artifact": "https://claude.ai/artifact/7pLRxoFmy8zSR5cK5Z5jec",
+      "apk": "builds/05g/OrigamiJoy-05g.apk",
+      "size": 60068362
+    },
+    {
+      "code": "05h",
+      "name": "Origami Pop",
+      "package": "com.paper.folding.origamipop",
+      "order": 3,
+      "artifact": "https://claude.ai/artifact/1cKg66BiXeTwhDM8hpK7zy",
+      "apk": "builds/05h/OrigamiPop-05h.apk",
+      "size": 60068362
+    },
+    {
+      "code": "05i",
+      "name": "Call Blocker Caller ID",
+      "package": "com.callerid.spamblock.shield",
+      "order": 4,
+      "artifact": "https://claude.ai/artifact/HFoEhG2QnfttGeab3GzHdo",
+      "apk": null
+    },
+    {
+      "code": "05j",
+      "name": "Live TV: M3U Player",
+      "package": "com.m3uplay.livetv.player",
+      "order": 5,
+      "artifact": "https://claude.ai/artifact/VsMeoAGSAbuATDBYZ3FjjN",
+      "apk": "builds/05j/LiveTV-M3U-Player-05j.apk",
+      "size": 58093390
+    }
+  ]
 }
